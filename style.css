@@ -1,21 +1,110 @@
-:root { --neon: #00f3ff; --magenta: #ff00ff; --dark: #050505; }
-body { margin: 0; background: var(--dark); color: white; font-family: 'Courier New', monospace; overflow-x: hidden; }
-#matrix { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.15; }
+:root {
+  --neon-blue: #00f3ff;
+  --dark-bg: #0a0a0a;
+}
 
-.main-content { display: flex; flex-direction: column; align-items: center; padding: 40px 20px; z-index: 1; }
-.glitch { font-size: 3.5rem; text-shadow: 2px 2px var(--magenta), -2px -2px var(--neon); letter-spacing: 5px; }
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--dark-bg);
+  color: white;
+  font-family: 'Courier New', monospace;
+}
 
-.terminal { background: rgba(0,0,0,0.8); border: 1px solid var(--neon); width: 90%; max-width: 800px; margin: 20px 0; border-radius: 5px; }
-.terminal-bar { background: var(--neon); color: black; padding: 5px 15px; font-weight: bold; }
-.terminal-body { padding: 20px; color: var(--neon); }
-.contact-hub { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-top: 15px; }
-.contact-hub a { color: white; text-decoration: none; border: 1px solid #333; padding: 5px; text-align: center; font-size: 0.8rem; }
-.contact-hub a:hover { border-color: var(--neon); background: rgba(0,243,255,0.1); }
+/* THE FIX: Push background to the back */
+#matrix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  opacity: 0.2;
+}
 
-.card-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px; }
-.cyber-card { position: relative; width: 260px; height: 320px; background: #111; border-radius: 10px; overflow: hidden; transition: 0.4s; border: 1px solid #222; }
-.cyber-card:hover { transform: translateY(-10px); border-color: var(--neon); box-shadow: 0 0 20px var(--neon); }
-.card-inner { position: relative; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; text-align: center; z-index: 2; background: #0a0a0a; margin: 2px; border-radius: 8px; }
-.icon { font-size: 3rem; margin-bottom: 10px; }
-.btn { margin-top: 15px; padding: 8px 20px; border: 1px solid var(--neon); color: var(--neon); text-decoration: none; border-radius: 4px; }
-.btn:hover { background: var(--neon); color: black; }
+.content-wrapper {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 20px;
+}
+
+.glitch {
+  font-size: 3rem;
+  text-shadow: 2px 2px #ff00ff, -2px -2px var(--neon-blue);
+  letter-spacing: 4px;
+  margin-bottom: 5px;
+}
+
+.terminal {
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid var(--neon-blue);
+  width: 100%;
+  max-width: 800px;
+  margin: 30px 0;
+  border-radius: 4px;
+}
+
+.terminal-header {
+  background: var(--neon-blue);
+  color: black;
+  padding: 5px 15px;
+  font-weight: bold;
+}
+
+.terminal-body { padding: 20px; }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.contact-grid a {
+  color: white;
+  text-decoration: none;
+  border: 1px solid #444;
+  padding: 8px;
+  text-align: center;
+  font-size: 0.8rem;
+  transition: 0.3s;
+}
+
+.contact-grid a:hover { border-color: var(--neon-blue); box-shadow: 0 0 10px var(--neon-blue); }
+
+.certification-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.cyber-card {
+  background: rgba(20, 20, 20, 0.9);
+  border: 1px solid #333;
+  width: 250px;
+  padding: 30px 10px;
+  border-radius: 8px;
+  text-align: center;
+  transition: 0.4s;
+}
+
+.cyber-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--neon-blue);
+  box-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+}
+
+.cert-icon { font-size: 3rem; margin-bottom: 10px; display: block; }
+.verify-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 20px;
+  border: 1px solid var(--neon-blue);
+  color: var(--neon-blue);
+  text-decoration: none;
+  font-weight: bold;
+}
