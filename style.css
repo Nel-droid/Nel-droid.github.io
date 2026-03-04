@@ -1,127 +1,86 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono&family=Poppins:wght@300;600&display=swap');
-
 :root {
     --cyan: #00f3ff;
-    --dark-bg: #050505;
-    --card-bg: #0d0d0d;
-    --text: #e0e0e0;
+    --bg: #080808;
+    --card: #121212;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
 body {
-    background-color: var(--dark-bg);
-    color: var(--text);
+    background-color: var(--bg);
+    color: white;
+    margin: 0;
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
 }
 
-#matrixCanvas {
+#securityGrid {
     position: fixed;
     top: 0; left: 0;
     z-index: -1;
-    opacity: 0.15;
+    opacity: 0.2;
 }
 
 /* Navbar */
 .navbar {
     display: flex;
     justify-content: space-between;
-    padding: 20px 5%;
-    background: rgba(0,0,0,0.8);
-    backdrop-filter: blur(10px);
+    padding: 20px 8%;
+    background: rgba(8, 8, 8, 0.9);
     position: sticky;
     top: 0;
     z-index: 100;
 }
 
-.logo { font-weight: bold; letter-spacing: 2px; }
 .logo span { color: var(--cyan); }
-.nav-links { display: flex; list-style: none; gap: 30px; }
-.nav-links a { color: var(--text); text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
-.nav-links a:hover { color: var(--cyan); }
+.nav-links { display: flex; list-style: none; gap: 20px; }
+.nav-links a { color: white; text-decoration: none; font-size: 0.9rem; }
 
-/* Hero Section */
-.hero {
-    height: 70vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.hero h1 { font-size: 3.5rem; letter-spacing: 5px; }
-.subtitle { color: var(--cyan); margin-bottom: 20px; font-family: 'Space Mono'; }
-
-/* Terminal Container */
+/* Terminal Style */
+.terminal-section { padding: 40px 10%; display: flex; justify-content: center; }
 .terminal-container {
-    max-width: 800px;
-    margin: 0 auto 50px;
     background: #000;
-    border: 1px solid #1a1a1a;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 1px solid #333;
+    width: 100%;
+    max-width: 800px;
+    border-radius: 5px;
+    font-family: 'Space Mono', monospace;
 }
+.terminal-header { background: #222; padding: 5px 15px; font-size: 0.8rem; color: #aaa; }
+.terminal-body { padding: 20px; line-height: 1.6; }
 
-.terminal-header {
-    background: #1a1a1a;
-    padding: 10px 20px;
-    font-family: 'Space Mono';
-    font-size: 0.8rem;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-}
-
-.terminal-body { padding: 30px; font-family: 'Space Mono'; line-height: 1.8; }
-.prompt { color: var(--cyan); }
-
-/* Grid Layout Fix */
+/* The Grid Fix - This makes it look "like before" */
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    padding: 50px 10%;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 40px 10%;
 }
 
 .cyber-card {
-    background: var(--card-bg);
-    padding: 40px 20px;
-    border-radius: 12px;
-    border: 1px solid #1a1a1a;
+    background: var(--card);
+    border: 1px solid #222;
+    padding: 30px;
     text-align: center;
-    position: relative;
-    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 10px;
+    transition: 0.3s;
 }
 
 .cyber-card:hover {
     border-color: var(--cyan);
-    transform: translateY(-10px);
-    box-shadow: 0 0 30px rgba(0, 243, 255, 0.1);
+    transform: translateY(-5px);
 }
 
-.badge-icon { font-size: 3rem; color: var(--cyan); margin-bottom: 20px; }
-.thm-badge { width: 180px; margin-bottom: 15px; }
+.badge-icon { font-size: 2.5rem; color: var(--cyan); margin-bottom: 15px; }
+.thm-img { width: 150px; margin-bottom: 10px; }
 
 .btn-verify {
     display: inline-block;
-    margin-top: 20px;
-    padding: 10px 25px;
-    border: 1px solid var(--cyan);
+    margin-top: 15px;
     color: var(--cyan);
     text-decoration: none;
+    border: 1px solid var(--cyan);
+    padding: 5px 15px;
     font-size: 0.8rem;
-    font-weight: bold;
-    border-radius: 4px;
 }
 
-.btn-verify:hover {
-    background: var(--cyan);
-    color: #000;
-}
-
-.section-title { text-align: center; margin-top: 80px; font-size: 2rem; letter-spacing: 4px; }
-
-footer { text-align: center; padding: 60px; border-top: 1px solid #1a1a1a; }
-.social-links { margin-bottom: 20px; display: flex; justify-content: center; gap: 20px; }
-.social-links a { color: var(--text); text-decoration: none; }
+.section-title { text-align: center; margin-top: 50px; letter-spacing: 3px; }
+footer { text-align: center; padding: 40px; border-top: 1px solid #222; }
