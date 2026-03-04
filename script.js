@@ -1,49 +1,44 @@
-// Background Animation
-const canvas = document.getElementById('securityGrid');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+// Typewriter Effect
+const textElement = document.querySelector(".typewriter");
+const words = ["RED TEAM ANALYST", "CYBERSECURITY STUDENT", "ENGLISH LANGUAGE EXPERT", "WEB VAPT LEARNER"];
+let wordIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
 
-const chars = "01010101";
-const drops = [];
-const fontSize = 15;
-const columns = canvas.width / fontSize;
-
-for (let i = 0; i < columns; i++) drops[i] = 1;
-
-function draw() {
-    ctx.fillStyle = "rgba(8, 8, 8, 0.1)";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#00f3ff";
-    ctx.font = fontSize + "px monospace";
-
-    for (let i = 0; i < drops.length; i++) {
-        const text = chars.charAt(Math.floor(Math.random() * chars.length));
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
-        drops[i]++;
-    }
-}
-setInterval(draw, 50);
-
-// Typing Effect
-const textElement = document.querySelector(".typing-text");
-const words = ["RED TEAM ANALYST", "CYBERSECURITY STUDENT", "ENGLISH INSTRUCTOR"];
-let wordIdx = 0, charIdx = 0, isDeleting = false;
-
-function typeEffect() {
-    const currentWord = words[wordIdx];
-    textElement.textContent = isDeleting ? currentWord.substring(0, charIdx--) : currentWord.substring(0, charIdx++);
-
-    if (!isDeleting && charIdx > currentWord.length) {
-        isDeleting = true;
-        setTimeout(typeEffect, 2000);
-    } else if (isDeleting && charIdx < 0) {
-        isDeleting = false;
-        wordIdx = (wordIdx + 1) % words.length;
-        setTimeout(typeEffect, 500);
+function type() {
+    const currentWord = words[wordIndex];
+    if (isDeleting) {
+        textElement.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
     } else {
-        setTimeout(typeEffect, isDeleting ? 50 : 100);
+        textElement.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+    }
+
+    if (!isDeleting && charIndex === currentWord.length) {
+        isDeleting = true;
+        setTimeout(type, 2000);
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        setTimeout(type, 500);
+    } else {
+        setTimeout(type, isDeleting ? 50 : 150);
     }
 }
-typeEffect();
+
+// Scroll Reveal Effect
+function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+    for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 150;
+        if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
+        }
+    }
+}
+
+window.addEventListener("scroll", reveal);
+document.addEventListener("DOMContentLoaded", type);
