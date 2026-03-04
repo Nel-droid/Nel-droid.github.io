@@ -1,54 +1,55 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono&family=Poppins:wght@300;600;800&display=swap');
-
 :root {
     --cyan: #00f3ff;
-    --dark-bg: #050505;
-    --glass: rgba(12, 12, 12, 0.9);
+    --bg: #050505;
+    --card: #0e0e0e;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: var(--dark-bg); color: white; font-family: 'Poppins', sans-serif; overflow-x: hidden; }
+body {
+    margin: 0; background: var(--bg); color: white;
+    font-family: 'Poppins', sans-serif; overflow-x: hidden;
+}
 
-/* Background Animation Fix */
 #matrixCanvas { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.15; }
 
-.navbar { display: flex; justify-content: space-between; padding: 20px 10%; background: rgba(0,0,0,0.85); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #222; }
-.logo span { color: var(--cyan); font-weight: 800; }
-.nav-links { display: flex; list-style: none; gap: 20px; }
-.nav-links a { color: #aaa; text-decoration: none; font-size: 0.85rem; transition: 0.3s; }
-.nav-links a:hover { color: var(--cyan); }
+.navbar {
+    display: flex; justify-content: space-between; padding: 20px 8%;
+    background: rgba(0,0,0,0.8); position: sticky; top: 0; z-index: 100;
+}
 
-/* Main Container */
-.main-container { max-width: 900px; margin: 0 auto; padding: 20px; }
+.logo span { color: var(--cyan); }
+.nav-links { display: flex; list-style: none; gap: 25px; }
+.nav-links a { color: white; text-decoration: none; font-size: 0.9rem; }
 
-.hero { height: 50vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-.glitch-text { font-size: 3.5rem; letter-spacing: 5px; color: white; }
-.console-box { font-family: 'Space Mono', monospace; color: var(--cyan); margin-top: 10px; font-size: 1.1rem; }
+.hero { height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+.glitch { font-size: 3.5rem; letter-spacing: 5px; }
 
-/* Section Styling */
-.glass-box { background: var(--glass); border: 1px solid #1a1a1a; padding: 40px; border-radius: 12px; margin-bottom: 40px; backdrop-filter: blur(8px); }
-.section-title { text-align: center; color: var(--cyan); margin-bottom: 30px; letter-spacing: 2px; text-transform: uppercase; font-size: 1.5rem; }
+/* Sections */
+.section-container { padding: 60px 10%; max-width: 1100px; margin: 0 auto; }
+.section-title { text-align: center; margin-bottom: 40px; letter-spacing: 3px; color: var(--cyan); text-transform: uppercase; }
 
-/* Terminal Layout */
-.terminal-ui { background: #000; border: 1px solid #333; border-radius: 8px; overflow: hidden; }
-.terminal-top { background: #111; padding: 10px 15px; display: flex; align-items: center; gap: 15px; }
-.buttons { display: flex; gap: 5px; }
-.buttons span { height: 10px; width: 10px; border-radius: 50%; }
-.b-red { background: #ff5f56; } .b-yellow { background: #ffbd2e; } .b-green { background: #27c93f; }
-.terminal-user { font-family: 'Space Mono'; font-size: 0.75rem; color: #555; }
-.terminal-body { padding: 25px; font-family: 'Space Mono'; line-height: 1.7; font-size: 0.9rem; }
-.highlight { color: var(--cyan); }
+/* Terminal Background */
+.terminal-window { background: #000; border: 1px solid #222; border-radius: 8px; overflow: hidden; }
+.terminal-header { background: #1a1a1a; padding: 10px; display: flex; align-items: center; }
+.dot { height: 10px; width: 10px; border-radius: 50%; margin-right: 5px; }
+.red { background: #ff5f56; } .yellow { background: #ffbd2e; } .green { background: #27c93f; }
+.t-title { margin-left: 10px; font-size: 0.7rem; font-family: monospace; color: #666; }
+.terminal-body { padding: 25px; font-family: 'Space Mono', monospace; line-height: 1.6; }
+.p { color: var(--cyan); font-weight: bold; }
 
-/* Progress Mastery */
-.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-.skill-info { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.85rem; }
-.progress-track { background: #222; height: 8px; border-radius: 4px; overflow: hidden; }
-.progress-bar { background: var(--cyan); height: 100%; border-radius: 4px; box-shadow: 0 0 10px var(--cyan); }
+/* Mastery Bars */
+.skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.skill-info { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem; }
+.progress-bar { background: #1a1a1a; height: 8px; border-radius: 4px; }
+.fill { height: 100%; background: var(--cyan); border-radius: 4px; }
 
-/* Badges Grid */
-.cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-.cert-item { background: rgba(0,0,0,0.5); padding: 30px; text-align: center; border: 1px solid #222; border-radius: 10px; transition: 0.3s; }
-.cert-item:hover { border-color: var(--cyan); transform: translateY(-5px); }
-.cert-item i { font-size: 2.5rem; color: var(--cyan); margin-bottom: 15px; }
-.verify-btn { display: inline-block; margin-top: 15px; color: var(--cyan); text-decoration: none; border: 1px solid var(--cyan); padding: 6px 15px; font-size: 0.75rem; border-radius: 4px; transition: 0.3s; }
-.verify-btn:hover { background: var(--cyan); color: #000; }
+/* Card Grid */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+.cyber-card { background: var(--card); border: 1px solid #1a1a1a; padding: 30px; text-align: center; border-radius: 12px; transition: 0.3s; }
+.cyber-card:hover { border-color: var(--cyan); transform: translateY(-5px); }
+.icon { font-size: 2.5rem; color: var(--cyan); margin-bottom: 15px; }
+.thm-img { width: 140px; margin-bottom: 10px; }
+.btn { display: inline-block; margin-top: 15px; border: 1px solid var(--cyan); color: var(--cyan); padding: 5px 15px; text-decoration: none; font-size: 0.8rem; }
+
+footer { text-align: center; padding: 40px; border-top: 1px solid #1a1a1a; }
+.contact-strip { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; }
+.contact-strip a { color: white; text-decoration: none; }
