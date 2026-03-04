@@ -1,31 +1,44 @@
-const canvas = document.getElementById('matrix');
-const ctx = canvas.getContext('2d');
+// Typewriter Effect
+const textElement = document.querySelector(".typewriter");
+const words = ["RED TEAM ANALYST", "CYBERSECURITY STUDENT", "ENGLISH LANGUAGE EXPERT", "WEB VAPT LEARNER"];
+let wordIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
 
-function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
+function type() {
+    const currentWord = words[wordIndex];
+    if (isDeleting) {
+        textElement.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+    } else {
+        textElement.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+    }
 
-window.addEventListener('resize', resize);
-resize();
-
-const alphabet = "01";
-const fontSize = 16;
-const columns = canvas.width / fontSize;
-const drops = Array(Math.floor(columns)).fill(1);
-
-function draw() {
-    ctx.fillStyle = "rgba(5, 5, 5, 0.1)";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#00f3ff";
-    ctx.font = fontSize + "px monospace";
-
-    for (let i = 0; i < drops.length; i++) {
-        const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
-        drops[i]++;
+    if (!isDeleting && charIndex === currentWord.length) {
+        isDeleting = true;
+        setTimeout(type, 2000);
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        setTimeout(type, 500);
+    } else {
+        setTimeout(type, isDeleting ? 50 : 150);
     }
 }
 
-setInterval(draw, 33);
+// Scroll Reveal Effect
+function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+    for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 150;
+        if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
+        }
+    }
+}
+
+window.addEventListener("scroll", reveal);
+document.addEventListener("DOMContentLoaded", type);
