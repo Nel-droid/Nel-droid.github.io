@@ -1,68 +1,49 @@
-// 1. Particle Background Animation
+// Background Animation
 const canvas = document.getElementById('securityGrid');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const particles = [];
-const numParticles = 80;
+const chars = "01010101";
+const drops = [];
+const fontSize = 15;
+const columns = canvas.width / fontSize;
 
-for (let i = 0; i < numParticles; i++) {
-    particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        size: Math.random() * 2
-    });
-}
+for (let i = 0; i < columns; i++) drops[i] = 1;
 
 function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = '#00f3ff';
-    ctx.font = '10px monospace';
-    particles.forEach(p => {
-        p.x += p.vx; p.y += p.vy;
-        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-        ctx.fillText('10', p.x, p.y);
-    });
-}
-setInterval(draw, 30);
+    ctx.fillStyle = "rgba(8, 8, 8, 0.1)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#00f3ff";
+    ctx.font = fontSize + "px monospace";
 
-// 2. Typing Effect for the Header
+    for (let i = 0; i < drops.length; i++) {
+        const text = chars.charAt(Math.floor(Math.random() * chars.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+    }
+}
+setInterval(draw, 50);
+
+// Typing Effect
 const textElement = document.querySelector(".typing-text");
-const professions = [
-    "RED TEAMING & OFFENSIVE WEB SECURITY",
-    "CYBERSECURITY STUDENT @ WEBSTER",
-    "TECHNICAL DOCUMENTATION EXPERT",
-    "ASPIRING ETHICAL HACKER"
-];
+const words = ["RED TEAM ANALYST", "CYBERSECURITY STUDENT", "ENGLISH INSTRUCTOR"];
+let wordIdx = 0, charIdx = 0, isDeleting = false;
 
-let profIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
+function typeEffect() {
+    const currentWord = words[wordIdx];
+    textElement.textContent = isDeleting ? currentWord.substring(0, charIdx--) : currentWord.substring(0, charIdx++);
 
-function type() {
-    const currentProf = professions[profIndex];
-    
-    if (isDeleting) {
-        textElement.textContent = currentProf.substring(0, charIndex - 1);
-        charIndex--;
-    } else {
-        textElement.textContent = currentProf.substring(0, charIndex + 1);
-        charIndex++;
-    }
-
-    if (!isDeleting && charIndex === currentProf.length) {
+    if (!isDeleting && charIdx > currentWord.length) {
         isDeleting = true;
-        setTimeout(type, 2000); // Pause at end
-    } else if (isDeleting && charIndex === 0) {
+        setTimeout(typeEffect, 2000);
+    } else if (isDeleting && charIdx < 0) {
         isDeleting = false;
-        profIndex = (profIndex + 1) % professions.length;
-        setTimeout(type, 500);
+        wordIdx = (wordIdx + 1) % words.length;
+        setTimeout(typeEffect, 500);
     } else {
-        setTimeout(type, isDeleting ? 50 : 100);
+        setTimeout(typeEffect, isDeleting ? 50 : 100);
     }
 }
-document.addEventListener("DOMContentLoaded", type);
+typeEffect();
