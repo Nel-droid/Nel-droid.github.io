@@ -38,7 +38,6 @@ drops[i]++;
 setInterval(draw,50);
 
 
-
 const textEl=document.querySelector(".typing-text");
 
 const words=[
