@@ -1,110 +1,25 @@
-:root {
-  --neon-blue: #00f3ff;
-  --dark-bg: #0a0a0a;
+/* Certificate Image Styling */
+.cert-image-placeholder {
+    width: 100%;
+    height: 150px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    transition: 0.3s;
+    overflow: hidden;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  background-color: var(--dark-bg);
-  color: white;
-  font-family: 'Courier New', monospace;
+.cyber-card:hover .cert-image-placeholder {
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 15px var(--neon-blue);
 }
 
-/* THE FIX: Push background to the back */
-#matrix {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-  opacity: 0.2;
-}
-
-.content-wrapper {
-  position: relative;
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 50px 20px;
-}
-
-.glitch {
-  font-size: 3rem;
-  text-shadow: 2px 2px #ff00ff, -2px -2px var(--neon-blue);
-  letter-spacing: 4px;
-  margin-bottom: 5px;
-}
-
-.terminal {
-  background: rgba(0, 0, 0, 0.85);
-  border: 1px solid var(--neon-blue);
-  width: 100%;
-  max-width: 800px;
-  margin: 30px 0;
-  border-radius: 4px;
-}
-
-.terminal-header {
-  background: var(--neon-blue);
-  color: black;
-  padding: 5px 15px;
-  font-weight: bold;
-}
-
-.terminal-body { padding: 20px; }
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.contact-grid a {
-  color: white;
-  text-decoration: none;
-  border: 1px solid #444;
-  padding: 8px;
-  text-align: center;
-  font-size: 0.8rem;
-  transition: 0.3s;
-}
-
-.contact-grid a:hover { border-color: var(--neon-blue); box-shadow: 0 0 10px var(--neon-blue); }
-
-.certification-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
-}
-
-.cyber-card {
-  background: rgba(20, 20, 20, 0.9);
-  border: 1px solid #333;
-  width: 250px;
-  padding: 30px 10px;
-  border-radius: 8px;
-  text-align: center;
-  transition: 0.4s;
-}
-
-.cyber-card:hover {
-  transform: translateY(-10px);
-  border-color: var(--neon-blue);
-  box-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
-}
-
-.cert-icon { font-size: 3rem; margin-bottom: 10px; display: block; }
-.verify-btn {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 8px 20px;
-  border: 1px solid var(--neon-blue);
-  color: var(--neon-blue);
-  text-decoration: none;
-  font-weight: bold;
+.cert-image-placeholder span {
+    font-size: 0.7rem;
+    color: #555;
+    letter-spacing: 2px;
 }
