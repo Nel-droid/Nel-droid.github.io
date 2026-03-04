@@ -1,3 +1,4 @@
+// Background Matrix
 const canvas = document.getElementById('matrixCanvas');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
@@ -22,15 +23,16 @@ function draw() {
 }
 setInterval(draw, 50);
 
+// Typing Effect
 const textEl = document.querySelector(".typing-text");
-const words = ["RED TEAM ANALYST", "SECURITY STUDENT", "ENGLISH INSTRUCTOR"];
-let wI = 0, cI = 0, isDeleting = false;
+const words = ["RED TEAM ANALYST", "OFFENSIVE SECURITY STUDENT", "ENGLISH LANGUAGE EXPERT"];
+let wIdx = 0, cIdx = 0, isDel = false;
 
 function type() {
-    const word = words[wI];
-    textEl.textContent = isDeleting ? word.substring(0, cI--) : word.substring(0, cI++);
-    if (!isDeleting && cI > word.length) { isDeleting = true; setTimeout(type, 2000); }
-    else if (isDeleting && cI < 0) { isDeleting = false; wI = (wI + 1) % words.length; setTimeout(type, 500); }
-    else { setTimeout(type, isDeleting ? 50 : 100); }
+    const word = words[wIdx];
+    textEl.textContent = isDel ? word.substring(0, cIdx--) : word.substring(0, cIdx++);
+    if (!isDel && cIdx > word.length) { isDel = true; setTimeout(type, 2000); }
+    else if (isDel && cIdx < 0) { isDel = false; wIdx = (wIdx + 1) % words.length; setTimeout(type, 500); }
+    else { setTimeout(type, isDel ? 50 : 100); }
 }
 type();
