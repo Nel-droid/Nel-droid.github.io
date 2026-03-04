@@ -8,74 +8,97 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <canvas id="securityGrid"></canvas>
+    <canvas id="matrixCanvas"></canvas>
 
     <nav class="navbar">
         <div class="logo">ELDOR<span>_0x1</span></div>
         <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
+            <li><a href="#skills">Mastery</a></li>
             <li><a href="#certs">Badges</a></li>
         </ul>
     </nav>
 
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>ELDOR NABIJONOV</h1>
-            <h2 class="typing-text"></h2>
+            <h1 class="glitch" data-text="ELDOR NABIJONOV">ELDOR NABIJONOV</h1>
+            <p class="subtitle">B.S. Cybersecurity @ Webster University Tashkent</p>
+            <div class="typing-container">
+                <span class="typing-text"></span>
+            </div>
         </div>
     </section>
 
-    <section id="about" class="terminal-section">
-        <div class="terminal-container">
-            <div class="terminal-header">eldornabijonov@webster.edu: ~ /profile</div>
-            <div class="terminal-body">
-                <p>> **Specialization:** Red Teaming & Offensive Web Security</p>
-                <p>> **Focus:** Active Directory & Infra Analysis</p>
-                <p>> **Background:** 2 Years pedagogical experience as an English instructor.</p>
+    <section id="about" class="terminal-container">
+        <div class="terminal-header">eldor@webster: ~ /profile_overview</div>
+        <div class="terminal-body">
+            <p><span class="prompt">></span> **Specialization:** Red Teaming & Offensive Web Security</p>
+            <p><span class="prompt">></span> **Focus:** Active Directory Exploitation | Advanced Web Vulnerability Research</p>
+            <p><span class="prompt">></span> **Experience:** 2 Years English Language Instructor (Technical Documentation focus)</p>
+        </div>
+    </section>
+
+    <section id="skills" class="skills-section">
+        <h2 class="section-title">TECHNICAL MASTERY</h2>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <span>Linux / Kali Linux</span>
+                <div class="progress-bar"><div class="fill" style="width: 85%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <span>Web VAPT</span>
+                <div class="progress-bar"><div class="fill" style="width: 70%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <span>Active Directory Security</span>
+                <div class="progress-bar"><div class="fill" style="width: 60%;"></div></div>
             </div>
         </div>
     </section>
 
     <section id="certs" class="cert-section">
-        <h2 class="section-title">VERIFIED BADGES</h2>
+        <h2 class="section-title">VERIFIED CREDENTIALS</h2>
         <div class="card-grid">
             <div class="cyber-card">
-                <div class="badge-icon"><i class="fas fa-shield-halved"></i></div>
+                <div class="card-glow"></div>
+                <i class="fas fa-shield-alt badge-icon"></i>
                 <h3>CRTA</h3>
-                <p>Red Team Analyst</p>
-                <a href="https://labs.cyberwarfare.live/credential/achievement/69642badbb7eab1b1aaa9a9b" target="_blank" class="btn-verify">VERIFY ID</a>
+                <p>Certified Red Team Analyst</p>
+                <a href="https://labs.cyberwarfare.live/credential/achievement/69642badbb7eab1b1aaa9a9b" class="btn-verify">Verify: 69642</a>
             </div>
 
             <div class="cyber-card">
-                <div class="badge-icon"><i class="fas fa-spider"></i></div>
+                <div class="card-glow"></div>
+                <i class="fas fa-spider badge-icon"></i>
                 <h3>WEB-RTA</h3>
-                <p>Web Red Team</p>
-                <a href="https://labs.cyberwarfare.live/credential/achievement/698df88d5f7c23c92b92fed6" target="_blank" class="btn-verify">VERIFY ID</a>
+                <p>Web Red Team Analyst</p>
+                <a href="https://labs.cyberwarfare.live/credential/achievement/698df88d5f7c23c92b92fed6" class="btn-verify">Verify: 698df</a>
             </div>
 
             <div class="cyber-card">
-                <div class="badge-icon"><i class="fas fa-key"></i></div>
+                <div class="card-glow"></div>
+                <i class="fas fa-user-shield badge-icon"></i>
                 <h3>ISC2 CC</h3>
-                <p>Certified Cybersecurity</p>
-                <a href="https://isc2.obrizum.io/org/cc/certificate/6897ff84-ff07-407b-aa26-f2321abe51bb" target="_blank" class="btn-verify">VERIFY ID</a>
+                <p>Certified in Cybersecurity</p>
+                <a href="#" class="btn-verify">ID: 2e91370d</a>
             </div>
 
             <div class="cyber-card">
-                <img src="https://tryhackme-badges.s3.amazonaws.com/Nel.png" alt="THM Badge" class="thm-img">
+                <div class="card-glow"></div>
+                <img src="https://tryhackme-badges.s3.amazonaws.com/Nel.png" alt="THM" class="thm-badge">
                 <h3>TryHackMe</h3>
-                <p>Pre-Security Certification</p>
-                <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-WGLE4P4S9T.pdf" target="_blank" class="btn-verify">VIEW PDF</a>
+                <p>Pre-Security Cert (Eldorbek)</p>
+                <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-WGLE4P4S9T.pdf" class="btn-verify">View PDF</a>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>+998 93 946 64 06 | eldor...2005@gmail.com</p>
-        <div class="social-icons">
-            <a href="https://t.me/ne_th_y_ch"><i class="fab fa-telegram"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
+        <div class="social-links">
+            <a href="https://t.me/ne_th_y_ch"><i class="fab fa-telegram"></i> Telegram</a>
+            <a href="mailto:eldornabijonov.2005@gmail.com"><i class="fas fa-envelope"></i> Email</a>
         </div>
+        <p>© 2026 // CONNECTION: STABLE</p>
     </footer>
 
     <script src="script.js"></script>
