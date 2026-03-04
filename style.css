@@ -1,45 +1,58 @@
-/* Inspiring Quote Box */
-.quote-box {
-    margin: 20px 0;
-    text-align: center;
-    font-style: italic;
-    color: var(--neon-magenta);
-    text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+:root {
+  --neon-cyan: #00f3ff;
+  --neon-magenta: #ff00ff;
+  --bg-black: #050505;
 }
 
-.quote-box span {
-    display: block;
-    font-size: 0.8rem;
-    margin-top: 5px;
-    opacity: 0.8;
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-black);
+  color: #fff;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  overflow-x: hidden;
 }
 
-/* Contact Grid inside Terminal */
-.contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 10px;
-    margin-top: 15px;
+/* Fix for Canvas Background */
+#canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
-.contact-grid a {
-    color: var(--neon-cyan);
-    text-decoration: none;
-    font-size: 0.9rem;
+.main-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
 }
 
-.contact-grid a:hover {
-    text-decoration: underline;
-    text-shadow: 0 0 8px var(--neon-cyan);
-}
-
-/* Ensure Bio-Terminal is responsive */
+/* Refined Terminal Box */
 .bio-terminal {
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0.9);
     border: 1px solid var(--neon-cyan);
-    padding: 30px;
+    padding: 25px;
     width: 90%;
-    max-width: 800px;
-    margin-bottom: 40px;
-    box-shadow: 0 0 20px rgba(0, 243, 255, 0.1);
+    max-width: 750px;
+    margin: 20px 0 40px 0;
+    font-family: 'Courier New', monospace;
+    box-shadow: 0 0 30px rgba(0, 243, 255, 0.1);
+}
+
+.terminal-header {
+    background: var(--neon-cyan);
+    color: black;
+    margin: -25px -25px 20px -25px;
+    padding: 8px 15px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+/* Card & Glitch Styles remain similar to previous but ensure background is rgba */
+.cyber-card {
+  background: rgba(10, 10, 10, 0.9);
+  /* ... rest of your card styles from Kan3an ... */
 }
