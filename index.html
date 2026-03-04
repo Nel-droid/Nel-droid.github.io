@@ -3,79 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eldor Nabijonov | Red Team Portfolio</title>
+    <title>Eldor Nabijonov | Red Team Operator</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <canvas id="securityGrid"></canvas>
-
     <nav class="navbar">
         <div class="logo">ELDOR<span>_0x1</span></div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#certs">Badges</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#certs">Certs</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
     <section id="home" class="hero">
         <div class="hero-content">
+            <p class="mono-text">Initializing Secure Connection...</p>
             <h1>ELDOR NABIJONOV</h1>
-            <h2 class="typing-text"></h2>
+            <h2 class="typewriter"></h2>
+            <div class="hero-btns">
+                <a href="#certs" class="btn btn-primary">View Credentials</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
         </div>
     </section>
 
-    <section id="about" class="terminal-section">
-        <div class="terminal-container">
-            <div class="terminal-header">eldor@webster: ~ /profile</div>
-            <div class="terminal-body">
-                <p>> **Specialization:** Red Teaming & Offensive Web Security</p>
-                <p>> **Focus:** Active Directory & Infra Analysis</p>
-                <p>> **Background:** 2 Years pedagogical experience as an English instructor.</p>
+    <section class="stats-strip">
+        <div class="stat-item"><h3>5+ Mo</h3><p>Red Team Training</p></div>
+        <div class="stat-item"><h3>2 Years</h3><p>Teaching Experience</p></div>
+        <div class="stat-item"><h3>4</h3><p>Industry Certs</p></div>
+    </section>
+
+    <section id="about" class="about-section">
+        <h2 class="section-title">Professional Background</h2>
+        <div class="timeline">
+            <div class="timeline-item reveal">
+                <div class="time-icon"><i class="fas fa-university"></i></div>
+                <div class="time-content">
+                    <h3>B.S. Cybersecurity</h3>
+                    <h4>Webster University Tashkent</h4>
+                    <p>Focusing on Offensive Security, Active Directory, and Network Defense.</p>
+                </div>
+            </div>
+            <div class="timeline-item reveal">
+                <div class="time-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                <div class="time-content">
+                    <h3>English Language Instructor</h3>
+                    <h4>2-Year Tenure</h4>
+                    <p>Leveraging linguistic mastery for technical documentation and clear security reporting.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills-section">
+        <h2 class="section-title">Technical Mastery</h2>
+        <div class="skills-grid">
+            <div class="skill-card reveal">
+                <div class="info"><span>Linux / Kali Linux</span><span>85%</span></div>
+                <div class="progress-bar"><div class="fill" style="width: 85%;"></div></div>
+            </div>
+            <div class="skill-card reveal">
+                <div class="info"><span>Web VAPT</span><span>70%</span></div>
+                <div class="progress-bar"><div class="fill" style="width: 70%;"></div></div>
+            </div>
+            <div class="skill-card reveal">
+                <div class="info"><span>English Proficiency</span><span>95%</span></div>
+                <div class="progress-bar"><div class="fill" style="width: 95%; background: #ff007a;"></div></div>
+            </div>
+            <div class="skill-card reveal">
+                <div class="info"><span>Network Security</span><span>65%</span></div>
+                <div class="progress-bar"><div class="fill" style="width: 65%;"></div></div>
             </div>
         </div>
     </section>
 
     <section id="certs" class="cert-section">
-        <h2 class="section-title">VERIFIED BADGES</h2>
-        <div class="card-grid">
-            <div class="cyber-card">
-                <div class="badge-icon"><i class="fas fa-shield-halved"></i></div>
-                <h3>CRTA</h3>
-                <p>Red Team Analyst</p>
-                <a href="https://labs.cyberwarfare.live/credential/achievement/69642badbb7eab1b1aaa9a9b" target="_blank" class="btn-verify">VERIFY ID</a>
-            </div>
-
-            <div class="cyber-card">
-                <div class="badge-icon"><i class="fas fa-spider"></i></div>
-                <h3>WEB-RTA</h3>
-                <p>Web Red Team</p>
-                <a href="https://labs.cyberwarfare.live/credential/achievement/698df88d5f7c23c92b92fed6" target="_blank" class="btn-verify">VERIFY ID</a>
-            </div>
-
-            <div class="cyber-card">
-                <div class="badge-icon"><i class="fas fa-key"></i></div>
-                <h3>ISC2 CC</h3>
-                <p>Certified Cybersecurity</p>
-                <a href="https://isc2.obrizum.io/org/cc/certificate/6897ff84-ff07-407b-aa26-f2321abe51bb" target="_blank" class="btn-verify">VERIFY ID</a>
-            </div>
-
-            <div class="cyber-card">
-                <img src="https://tryhackme-badges.s3.amazonaws.com/Nel.png" alt="THM Badge" class="thm-img">
+        <h2 class="section-title">Verified Badges</h2>
+        <div class="cert-grid">
+            <div class="cert-card reveal">
+                <img src="https://tryhackme-badges.s3.amazonaws.com/Nel.png" alt="THM Nel Badge">
                 <h3>TryHackMe</h3>
                 <p>Pre-Security Cert</p>
-                <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-WGLE4P4S9T.pdf" target="_blank" class="btn-verify">VIEW PDF</a>
+                <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-WGLE4P4S9T.pdf" target="_blank">View PDF</a>
+            </div>
+            <div class="cert-card reveal">
+                <div class="icon-placeholder"><i class="fas fa-shield-halved"></i></div>
+                <h3>CRTA</h3>
+                <p>Red Team Analyst</p>
+                <a href="https://labs.cyberwarfare.live/credential/achievement/69642badbb7eab1b1aaa9a9b" target="_blank">Verify ID</a>
+            </div>
+            <div class="cert-card reveal">
+                <div class="icon-placeholder"><i class="fas fa-spider"></i></div>
+                <h3>WEB-RTA</h3>
+                <p>Web Red Team</p>
+                <a href="https://labs.cyberwarfare.live/credential/achievement/698df88d5f7c23c92b92fed6" target="_blank">Verify ID</a>
             </div>
         </div>
     </section>
 
-    <footer>
-        <p>+998 93 946 64 06 | eldor...2005@gmail.com</p>
-        <div class="social-icons">
-            <a href="https://t.me/ne_th_y_ch"><i class="fab fa-telegram"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
+    <footer id="contact">
+        <h2>Connect With Me</h2>
+        <div class="contact-links">
+            <a href="tel:+998939466406"><i class="fas fa-phone"></i> +998 93 946 64 06</a>
+            <a href="mailto:eldornabijonov.2005@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+            <a href="https://t.me/ne_th_y_ch" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
         </div>
+        <p class="copyright">&copy; 2026 Eldor Nabijonov | Built for Security</p>
     </footer>
 
     <script src="script.js"></script>
