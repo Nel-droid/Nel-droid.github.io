@@ -1,0 +1,54 @@
+body {
+    background-color: #0a0a0a;
+    color: #00ff41; /* Classic Terminal Green */
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    max-width: 700px;
+    background: #111;
+    padding: 40px;
+    border: 1px solid #00ff41;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+    text-align: center;
+}
+
+h1 {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    border-bottom: 2px solid #00ff41;
+    padding-bottom: 10px;
+}
+
+.section {
+    margin: 25px 0;
+    text-align: left;
+    border-left: 3px solid #00ff41;
+    padding-left: 15px;
+}
+
+a {
+    color: #00ff41;
+    text-decoration: underline;
+}
+
+.btn {
+    display: inline-block;
+    border: 1px solid #00ff41;
+    padding: 10px 20px;
+    margin-top: 20px;
+    color: #00ff41;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    background: #00ff41;
+    color: #000;
+}
