@@ -1,73 +1,86 @@
 :root {
-  --cyan: #00f3ff;
-  --bg-dark: #070707;
-  --magenta-glitch: #ff00ff;
-  --gray-card: #111111;
+    --cyan: #00f3ff;
+    --bg: #080808;
+    --card: #121212;
 }
 
-body, html {
-  margin: 0;
-  padding: 0;
-  background-color: var(--bg-dark);
-  color: white;
-  font-family: 'Poppins', sans-serif;
-  overflow-x: hidden;
+body {
+    background-color: var(--bg);
+    color: white;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
 }
 
-/* THE BACKGROUND FIX */
 #securityGrid {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1; /* Pushes animation to the very back */
-  opacity: 0.15;
+    position: fixed;
+    top: 0; left: 0;
+    z-index: -1;
+    opacity: 0.2;
 }
 
-.hero {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  position: relative;
-  z-index: 10; /* Ensures content is above background */
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 8%;
+    background: rgba(8, 8, 8, 0.9);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-/* Cards (Authority/Glass Look) */
+.logo span { color: var(--cyan); }
+.nav-links { display: flex; list-style: none; gap: 20px; }
+.nav-links a { color: white; text-decoration: none; font-size: 0.9rem; }
+
+/* Terminal Style */
+.terminal-section { padding: 40px 10%; display: flex; justify-content: center; }
+.terminal-container {
+    background: #000;
+    border: 1px solid #333;
+    width: 100%;
+    max-width: 800px;
+    border-radius: 5px;
+    font-family: 'Space Mono', monospace;
+}
+.terminal-header { background: #222; padding: 5px 15px; font-size: 0.8rem; color: #aaa; }
+.terminal-body { padding: 20px; line-height: 1.6; }
+
+/* The Grid Fix - This makes it look "like before" */
 .card-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  padding: 0 5%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 40px 10%;
 }
 
 .cyber-card {
-  background: rgba(15, 15, 15, 0.95);
-  border: 1px solid rgba(0, 243, 255, 0.1);
-  width: 260px;
-  padding: 30px;
-  border-radius: 12px;
-  text-align: center;
-  transition: 0.4s;
-  cursor: pointer;
+    background: var(--card);
+    border: 1px solid #222;
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    transition: 0.3s;
 }
 
 .cyber-card:hover {
-  border-color: var(--cyan);
-  box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
-  transform: translateY(-5px);
+    border-color: var(--cyan);
+    transform: translateY(-5px);
 }
 
-.badge-icon { font-size: 3rem; margin-bottom: 15px; color: #888; }
+.badge-icon { font-size: 2.5rem; color: var(--cyan); margin-bottom: 15px; }
+.thm-img { width: 150px; margin-bottom: 10px; }
+
 .btn-verify {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 8px 20px;
-  border: 1px solid var(--cyan);
-  color: var(--cyan);
-  text-decoration: none;
-  font-weight: bold;
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--cyan);
+    text-decoration: none;
+    border: 1px solid var(--cyan);
+    padding: 5px 15px;
+    font-size: 0.8rem;
 }
+
+.section-title { text-align: center; margin-top: 50px; letter-spacing: 3px; }
+footer { text-align: center; padding: 40px; border-top: 1px solid #222; }
