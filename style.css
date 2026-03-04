@@ -1,122 +1,70 @@
 :root {
-  --neon-cyan: #00f3ff;
-  --dark-bg: #050505;
-  --panel-bg: rgba(15, 15, 15, 0.95);
-  --magenta-glitch: #ff00ff;
+    --primary: #00d4ff;
+    --accent: #ff007a;
+    --bg-dark: #080808;
+    --card-bg: #121212;
 }
 
-body, html {
-  margin: 0;
-  padding: 0;
-  background-color: var(--dark-bg);
-  color: white;
-  font-family: 'Courier New', Courier, monospace;
-  overflow-x: hidden;
+body {
+    background: var(--bg-dark);
+    color: #fff;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
 }
 
-/* FIXED ANIMATION LAYER */
-#matrix {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 1; /* Lowest z-index */
-  opacity: 0.15;
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 8%;
+    position: fixed;
+    width: 84%;
+    background: rgba(8, 8, 8, 0.95);
+    z-index: 1000;
+    border-bottom: 1px solid #222;
 }
 
-/* CONTENT LAYER (Unified Interface) */
-.content-wrapper {
-  position: relative;
-  z-index: 10; /* Highest z-index */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 60px 20px;
+.logo { font-size: 1.5rem; font-weight: bold; }
+.logo span { color: var(--primary); }
+.nav-links { display: flex; list-style: none; gap: 2rem; }
+.nav-links a { color: #fff; text-decoration: none; transition: 0.3s; font-size: 0.9rem; }
+.nav-links a:hover { color: var(--primary); }
+
+/* Hero */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: radial-gradient(circle at center, #111 0%, #080808 100%);
 }
 
-.glitch-title {
-  font-size: 3.5rem;
-  letter-spacing: 5px;
-  text-shadow: 2px 2px var(--magenta-glitch), -2px -2px var(--neon-cyan);
-  margin: 0;
+.greet { color: var(--primary); font-family: monospace; }
+h1 { font-size: 4rem; margin: 10px 0; letter-spacing: -2px; }
+
+/* Stats */
+.stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 60px 10%;
+    background: var(--card-bg);
 }
 
-.university-tag {
-  color: var(--neon-cyan);
-  margin-top: 10px;
-  font-weight: bold;
-}
+.stat-box h3 { font-size: 2.5rem; color: var(--primary); margin: 0; }
 
-.bio-terminal {
-  background: rgba(0, 0, 0, 0.85);
-  border: 1px solid var(--neon-cyan);
-  width: 90%;
-  max-width: 800px;
-  margin: 30px 0;
-  border-radius: 4px;
-}
+/* Skill Bars */
+.skills { padding: 80px 10%; }
+.skill-bar { margin-bottom: 25px; }
+.info { display: flex; justify-content: space-between; margin-bottom: 8px; }
+.bar { background: #333; height: 10px; border-radius: 5px; position: relative; }
+.bar span { height: 100%; border-radius: 5px; position: absolute; background: var(--primary); }
 
-.terminal-bar {
-  background: var(--neon-cyan);
-  color: black;
-  padding: 5px 15px;
-  font-weight: bold;
-}
+.linux { width: 85%; }
+.net { width: 70%; }
+.web { width: 65%; }
+.eng { width: 95%; background: var(--accent) !important; }
 
-.terminal-body { padding: 25px; }
-
-.contact-hub {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.contact-hub a {
-  color: white;
-  text-decoration: none;
-  font-size: 0.8rem;
-  padding: 5px;
-  border: 1px solid #333;
-  text-align: center;
-}
-
-.contact-hub a:hover {
-  border-color: var(--neon-cyan);
-  box-shadow: 0 0 10px var(--neon-cyan);
-}
-
-.card-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 40px;
-}
-
-.cyber-card {
-  background: var(--panel-bg);
-  border: 1px solid #222;
-  width: 250px;
-  padding: 30px;
-  border-radius: 8px;
-  text-align: center;
-  transition: 0.4s;
-}
-
-.cyber-card:hover {
-  transform: translateY(-10px);
-  border-color: var(--neon-cyan);
-  box-shadow: 0 0 20px var(--neon-cyan);
-}
-
-.thm-badge { width: 100%; border-radius: 4px; margin-bottom: 10px; }
-.verify-btn {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 8px 20px;
-  border: 1px solid var(--neon-cyan);
-  color: var(--neon-cyan);
-  text-decoration: none;
-}
+/* Section Titles */
+.section-title { text-align: center; margin-bottom: 50px; font-size: 2rem; }
